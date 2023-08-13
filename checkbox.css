@@ -1,0 +1,116 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: calibri;
+}
+.container
+{
+    /* $  border: 1px solid red; */
+   width: 95%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 3px;
+   margin: 5px auto;
+}
+.col-container, .col2-container
+{
+    background-color: #252B48;
+    color: #FBD85D;
+     border: 1px solid green;
+    width: 25%;
+    height: 30px;    
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.col3-container
+{
+    background-color: #252B48;
+    color: #F8F0E5;
+    border: 1px solid green;
+    width: 30%;
+    height: 30px;    
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.col4-container
+{
+    background-color: #252B48;
+    color: #F8F0E5;
+    border: 1px solid green;
+    width: 20%;
+    height: 30px;    
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.text-container, .text2-container, .text3-container, .text4-container
+{
+    width: 100%;
+    /*   border: 1px solid blue;     */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.text1, .text2
+{
+    width: 25%;
+    height: 40px;
+    /*  border: 1px solid blue;*/
+    font-size: 17px;
+}
+.text2, .text4
+{
+    display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.text3
+{
+    width: 30%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*   border: 1px solid blue;*/
+}
+.text4
+{
+    width: 20%;
+    height: 40px;
+    /*    border: 1px solid blue;*/
+}
+input[type="checkbox"]
+{
+   margin: 13px;
+}
+input[type="text"]
+{
+    width: 80%;
+    height: 80%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+    border-color: blue;
+}
+.text4 p
+{
+    text-align: end;
+    font-weight: bold;
+    font-size: 18px;
+    color: brown;
+}
+@media(max-width:768px)
+{
+    .container, .text-container, .text2-container, .text3-container, .text4-container
+    {
+        flex-direction: column;
+    }
+    .col-container, .col2-container, .col3-container, .col4-container, .text1, .text2, .text3, .text4
+    {
+        width: 100%;
+    }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="chkmakanan" value="Soto Ayam" onclick="adasotoayam()">Soto Ayam <br><br>
+    jumlah beli &nbsp;&nbsp; <input type="text" id="belisotoayam" onkeyup="jumlahbelisotoayam()"><br><br>
+    total soto ayam &nbsp;&nbsp; <input type="text" id="totalayam"> 
+    <p id="totaldalamayam"></p>
+    
+    <br><br><br>
+
+    <!-- soto daging -->
+
+    <input type="checkbox" name="chkmakanan" value="Soto Daging" onclick="adasotodaging()">Soto Daging <br><br>
+    jumlah beli &nbsp;&nbsp; <input type="text" id="belisotodaging" onkeyup="jumlahbelisotodaging()"><br><br>
+    total soto daging &nbsp;&nbsp; <input type="text" id="totaldaging"> 
+    <p id="totaldalamdaging"></p>
+
+    <br><br><br>
+
+     <!-- soto campur -->
+
+     <input type="checkbox" name="chkmakanan" value="Soto Campur" onclick="adasotocampur()">Soto Campur <br><br>
+     jumlah beli &nbsp;&nbsp; <input type="text" id="belisotocampur" onkeyup="jumlahbelisotocampur()"><br><br>
+     total soto campur &nbsp;&nbsp; <input type="text" id="totalcampur"> 
+     <p id="totaldalamcampur"></p>
+ 
+     <br><br><br>
+
+     <!-- gorengan -->
+
+     <input type="checkbox" name="chkmakanan" value="Gorengan" onclick="adagorengan()">Gorengan <br><br>
+     jumlah beli &nbsp;&nbsp; <input type="text" id="beligorengan" onkeyup="jumlahbeligorengan()"><br><br>
+     total Gorengan &nbsp;&nbsp; <input type="text" id="totalgorengan"> 
+    <p id="totaldalamgorengan"></p>
+
+
+     <br><br><br>
+ 
+    total semua &nbsp;&nbsp;  <p id="totalharga"></p><input type="text" id="totalsemua">
+
+    <br><br>
+
+    bayar &nbsp;&nbsp; <input type="text" id="bayarnya" onkeyup="bayarnya()">
+
+    <br><br>
+
+    kembali &nbsp;&nbsp; <span id="kembalinya"></span>
+
+        
+        <script>
+
+        // soto ayam
+
+        let aa = document.getElementsByName("chkmakanan")
+
+        function jumlahbelisotoayam()
+         {
+                for (let i = 0; i < aa.length; i++) 
+                {
+                  if (aa[i].checked == true) 
+                    {
+                        document.getElementById("totalayam").value = 15000 * Number(document.getElementById("belisotoayam").value);                     
+                        document.getElementById("totalsemua").value =  15000 * Number(document.getElementById("belisotoayam").value) + 20000 * Number(document.getElementById("belisotodaging").value) + 30000 * Number(document.getElementById("belisotocampur").value)  + 3000 * Number(document.getElementById("beligorengan").value)
+                        document.getElementById("totaldalamayam").innerHTML =   document.getElementById("totalayam").value 
+                        document.getElementById("totalharga").innerHTML =   document.getElementById("totalayam").value 
+                    }                    
+                }           
+        }
+        function adasotoayam()
+        {
+            for (let i = 0; i < aa.length; i++) 
+                {
+
+                    if (aa[i].checked == false) 
+                    {
+                        document.getElementById("belisotoayam").value = " ";
+                        document.getElementById("totalayam").value = " ";
+                        document.getElementById("totalsemua").value =  20000 * Number(document.getElementById("belisotodaging").value) + 30000 * Number(document.getElementById("belisotocampur").value)  + 3000 * Number(document.getElementById("beligorengan").value)
+                        document.getElementById("totaldalamayam").innerHTML = " ";
+                    }
+                }      
+        }
+        function bayarnya()
+        {
+            document.getElementById("kembalinya").innerHTML = document.getElementById("bayarnya").value - document.getElementById("totalsemua").value 
+         }
+
+        //soto daging
+        
+        function jumlahbelisotodaging()
+         {
+                for (let i = 0; i <aa.length; i++) 
+                {
+                  if (aa[i].checked == true) 
+                    {
+                        document.getElementById("totaldaging").value =  20000 * Number(document.getElementById("belisotodaging").value);                    
+                        document.getElementById("totalsemua").value = 15000 * Number(document.getElementById("belisotoayam").value) + 20000 * Number(document.getElementById("belisotodaging").value) + 30000 * Number(document.getElementById("belisotocampur").value)  + 3000 * Number(document.getElementById("beligorengan").value)
+                        document.getElementById("totaldalamdaging").innerHTML =  document.getElementById("totaldaging").value 
+                        document.getElementById("totalharga").innerHTML =   document.getElementById("totaldaging").value 
+                    }                    
+                }           
+        }
+        function adasotodaging()
+        {
+            for (let i = 0; i < aa.length; i++) 
+                {
+                    if (aa[i].checked == false) 
+                    {
+                        document.getElementById("belisotodaging").value = " ";
+                        document.getElementById("totaldaging").value = " ";
+                        document.getElementById("totalsemua").value = 15000 * Number(document.getElementById("belisotoayam").value) - 20000 * Number(document.getElementById("belisotodaging").value) + 30000 * Number(document.getElementById("belisotocampur").value)  + 3000 * Number(document.getElementById("beligorengan").value)
+                        document.getElementById("totaldalamdaging").innerHTML = " ";
+                    }
+                }      
+        }
+
+        
+        //soto campur
+        
+        function jumlahbelisotocampur()
+         {
+                for (let i = 0; i <aa.length; i++) 
+                {
+                  if (aa[i].checked == true) 
+                    {
+                        document.getElementById("totalcampur").value = 30000 * Number(document.getElementById("belisotocampur").value);
+                        document.getElementById("totalsemua").value = 15000 * Number(document.getElementById("belisotoayam").value) + 20000 * Number(document.getElementById("belisotodaging").value) + 30000 * Number(document.getElementById("belisotocampur").value)  + 3000 * Number(document.getElementById("beligorengan").value)
+                        document.getElementById("totaldalamcampur").innerHTML =  document.getElementById("totalcampur").value 
+                        document.getElementById("totalharga").innerHTML =   document.getElementById("totalcampur").value 
+                    }                    
+                }           
+        }
+        function adasotocampur()
+        {
+            for (let i = 0; i < aa.length; i++) 
+                {
+                    if (aa[i].checked == false) 
+                    {
+                        document.getElementById("belisotocampur").value = " ";
+                        document.getElementById("totalcampur").value = " ";
+                        document.getElementById("totalsemua").value = 15000 * Number(document.getElementById("belisotoayam").value) + 20000 * Number(document.getElementById("belisotodaging").value) -  30000 * Number(document.getElementById("belisotocampur").value)  + 3000 * Number(document.getElementById("beligorengan").value)
+                        document.getElementById("totaldalamcampur").innerHTML = " ";
+                    }
+                }      
+        }
+
+        
+        // gorengan
+
+
+        function jumlahbeligorengan()
+         {
+                for (let i = 0; i < aa.length; i++) 
+                {
+                  if (aa[i].checked == true) 
+                    {
+                        document.getElementById("totalgorengan").value = 3000 * Number(document.getElementById("beligorengan").value);                     
+                        document.getElementById("totalsemua").value = 15000 * Number(document.getElementById("belisotoayam").value) + 20000 * Number(document.getElementById("belisotodaging").value) + 30000 * Number(document.getElementById("belisotocampur").value)  + 3000 * Number(document.getElementById("beligorengan").value)
+                        document.getElementById("totaldalamgorengan").innerHTML =  document.getElementById("totalgorengan").value 
+                        document.getElementById("totalharga").innerHTML =   document.getElementById("totalgorengan").value 
+                    }                    
+                }           
+        }
+        function adagorengan()
+        {
+            for (let i = 0; i < aa.length; i++) 
+                {
+
+                    if (aa[i].checked == false) 
+                    {
+                        document.getElementById("beligorengan").value = " ";
+                        document.getElementById("totalgorengan").value = " ";
+                        document.getElementById("totalsemua").value = 15000 * Number(document.getElementById("belisotoayam").value) + 20000 * Number(document.getElementById("belisotodaging").value) + 30000 * Number(document.getElementById("belisotocampur").value)  - 3000 * Number(document.getElementById("beligorengan").value)
+                        document.getElementById("totaldalamgorengan").innerHTML  = " ";
+                    }
+                }      
+        }
+
+
+    </script>
+</body>
+</html>
